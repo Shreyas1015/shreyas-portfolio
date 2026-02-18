@@ -36,7 +36,7 @@ export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormState((prev) => ({ ...prev, [name]: value }));
@@ -89,9 +89,7 @@ export default function Contact() {
               Let&apos;s Talk About Your Project
             </h3>
             <p className="text-zinc-700 dark:text-zinc-300">
-              Have a project in mind or want to discuss potential opportunities?
-              Feel free to reach out! I&apos;m always open to new challenges and
-              collaborations.
+              Open to backend, cloud, and platform engineering opportunities.
             </p>
 
             <div className="space-y-6 mt-8">
@@ -108,10 +106,10 @@ export default function Contact() {
                 <div>
                   <h4 className="font-semibold">Email</h4>
                   <a
-                    href="mailto:shreyas1234gurav@gmail.com"
+                    href="mailto:shreyasss15.10@gmail.com"
                     className="text-zinc-700 dark:text-zinc-300 hover:text-rose-500 dark:hover:text-rose-400 transition-colors"
                   >
-                    shreyas1234gurav@gmail.com
+                    shreyasss15.10@gmail.com
                   </a>
                 </div>
               </motion.div>
@@ -191,7 +189,7 @@ export default function Contact() {
                   transition={{ duration: 0.3, delay: 0.2 }}
                   viewport={{ once: true }}
                   whileHover={{ y: -5 }}
-                  href="mailto:shreyas1234gurav@gmail.com"
+                  href="mailto:shreyasss15.10@gmail.com"
                   className="p-3 rounded-xl bg-white dark:bg-zinc-800 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-zinc-200 dark:border-zinc-700"
                 >
                   <Mail className="h-6 w-6 text-rose-500" />

@@ -5,10 +5,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
 import About from "@/components/about";
+import Certifications from "@/components/certifications";
 import Skills from "@/components/skills";
 import Experience from "@/components/experience";
 import Projects from "@/components/projects";
-import Achievements from "@/components/achievements";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import Loader from "@/components/loader";
@@ -66,7 +66,7 @@ export default function MainLayout() {
         .filter((section) => scrollY >= section.offset - buffer)
         .reduce(
           (prev, current) => (current.offset > prev.offset ? current : prev),
-          sections[0]
+          sections[0],
         );
 
       setActiveSection(currentSection.id);
@@ -95,17 +95,17 @@ export default function MainLayout() {
       <div
         className={cn(
           "min-h-screen px-4 sm:px-6 md:px-12 lg:px-20 bg-white dark:bg-zinc-950",
-          loading ? "overflow-hidden h-screen" : ""
+          loading ? "overflow-hidden h-screen" : "",
         )}
       >
         <Header activeSection={activeSection} />
         <main>
           <Hero />
           <About />
+          <Certifications />
           <Skills />
           <Experience />
           <Projects />
-          <Achievements />
           <Contact />
         </main>
         <Footer />

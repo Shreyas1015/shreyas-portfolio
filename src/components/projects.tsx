@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Globe, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import SectionHeading from "@/components/section-heading";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 export default function Projects() {
   const containerRef = useRef(null);
@@ -22,29 +23,29 @@ export default function Projects() {
     {
       title: "EventLink",
       description:
-        "A centralized platform for college event information that solves fragmented announcements across platforms.",
+        "Centralized platform addressing fragmented college event communication through structured aggregation and scalable APIs.",
       image: "/ChatGPT Image Apr 6, 2025, 09_27_14 PM.png",
       technologies: ["Next.js", "React.js", "Express.js", "MySQL"],
       link: "https://event-link-web.vercel.app",
       github: "#",
       features: [
-        "Centralized event information system",
-        "Improved visibility and engagement for college events",
-        "Streamlined experience for students and job seekers",
+        "Designed backend data workflows",
+        "Built scalable API structure",
+        "Improved event discovery consistency",
       ],
     },
     {
       title: "Tripto",
       description:
-        "A B2B platform connecting car owners and vendors to streamline outstation travel.",
+        "Vendor-oriented platform enabling structured management of outstation travel coordination.",
       image: "/ChatGPT Image Apr 6, 2025, 09_23_04 PM.png",
-      technologies: ["React.js", "Express.js", "MySQL"],
+      technologies: ["React.js", "Next.js", "Express.js", "MySQL"],
       link: "https://tripto-web.vercel.app",
       github: "#",
       features: [
-        "Real-time tracking and vendor management",
-        "Secure payment processing",
-        "Empowering local businesses and entrepreneurs",
+        "Implemented authentication and API optimization",
+        "Improved backend scalability",
+        "Streamlined vendor workflows",
       ],
     },
   ];
@@ -84,25 +85,16 @@ export default function Projects() {
                   viewport={{ once: true }}
                   className="relative"
                 >
-                  {/* Decorative elements */}
-                  <div
-                    className={`absolute -top-4 ${
-                      index % 2 === 0 ? "-right-4" : "-left-4"
-                    } w-24 h-24 border-2 border-rose-500 ${
-                      index % 2 === 0 ? "rounded-tr-2xl" : "rounded-tl-2xl"
-                    } z-0`}
-                  ></div>
-                  <div
-                    className={`absolute -bottom-4 ${
-                      index % 2 === 0 ? "-left-4" : "-right-4"
-                    } w-24 h-24 border-2 border-emerald-500 ${
-                      index % 2 === 0 ? "rounded-bl-2xl" : "rounded-br-2xl"
-                    } z-0`}
-                  ></div>
-
-                  {/* Main image with gradient border */}
-                  <div className="relative z-10 rounded-xl overflow-hidden p-1 bg-gradient-to-br from-rose-500 via-purple-500 to-emerald-500">
-                    <div className="absolute inset-0 bg-white dark:bg-zinc-950 rounded-xl m-[3px]"></div>
+                  {/* Main image with gradient border + GlowingEffect */}
+                  <div className="relative z-10 rounded-xl overflow-hidden p-[2px] bg-gradient-to-br from-rose-500 via-purple-500 to-emerald-500">
+                    {/* Aceternity glowing border */}
+                    <GlowingEffect
+                      spread={40}
+                      glow
+                      proximity={64}
+                      borderWidth={2}
+                    />
+                    <div className="absolute inset-0 bg-white dark:bg-zinc-950 rounded-xl m-[2px]" />
                     <div className="relative rounded-lg overflow-hidden">
                       <Image
                         src={project.image || "/placeholder.svg"}

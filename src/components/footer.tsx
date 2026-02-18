@@ -1,12 +1,10 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Github, Linkedin, Mail, Heart } from "lucide-react"
-import Link from "next/link"
+import { motion } from "framer-motion";
+import { Github, Linkedin, Mail, Heart } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
-
   return (
     <footer className="bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800">
       <div className="container px-4 md:px-6 py-12 mx-auto">
@@ -24,7 +22,9 @@ export default function Footer() {
             >
               SG
             </Link>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-2">Full Stack Developer</p>
+            <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-2">
+              Software Engineer | AWS Certified Developer – Associate
+            </p>
           </motion.div>
 
           <motion.div
@@ -54,7 +54,7 @@ export default function Footer() {
                 <span className="sr-only">LinkedIn</span>
               </Link>
               <Link
-                href="mailto:shreyas1234gurav@gmail.com"
+                href="mailto:shreyasss15.10@gmail.com"
                 className="p-2 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
               >
                 <Mail className="h-5 w-5" />
@@ -63,18 +63,18 @@ export default function Footer() {
             </div>
 
             <p className="text-center md:text-right text-sm text-zinc-500 dark:text-zinc-400">
-              © {currentYear} Shreyas Gurav. All rights reserved.
+              © 2026 Shreyas Gurav. All rights reserved.
             </p>
           </motion.div>
         </div>
 
         <div className="border-t border-zinc-200 dark:border-zinc-800 mt-8 pt-8 text-center">
           <p className="text-sm text-zinc-500 dark:text-zinc-400 flex items-center justify-center">
-            Made with <Heart className="h-4 w-4 text-rose-500 mx-1" /> by Shreyas Gurav
+            Made with <Heart className="h-4 w-4 text-rose-500 mx-1" /> by
+            Shreyas Gurav
           </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }
-

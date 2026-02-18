@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 import SectionHeading from "@/components/section-heading";
+import { CardContainer, CardBody, CardItem } from "@/components/ui/3d-card";
 
 export default function About() {
   const containerRef = useRef(null);
@@ -32,59 +33,69 @@ export default function About() {
       <div className="container px-4 md:px-6 mx-auto">
         <SectionHeading title="About Me" subtitle="My introduction" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mt-16">
-          <motion.div style={{ y, opacity }} className="relative">
-            <div className="relative mx-auto max-w-md">
-              {/* Decorative elements */}
-              <div className="absolute -top-6 -left-6 w-24 h-24 border-2 border-rose-500 rounded-tl-2xl z-0"></div>
-              <div className="absolute -bottom-6 -right-6 w-24 h-24 border-2 border-emerald-500 rounded-br-2xl z-0"></div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mt-16">
+          <motion.div
+            style={{ y, opacity }}
+            className="relative flex justify-center mb-16"
+          >
+            <CardContainer containerClassName="py-0">
+              <CardBody className="relative w-[340px] md:w-[400px]">
+                {/* Decorative corners — float behind */}
+                <CardItem
+                  translateZ={-20}
+                  className="absolute -top-6 -left-6 w-24 h-24 border-2 border-rose-500 rounded-tl-2xl pointer-events-none"
+                />
+                <CardItem
+                  translateZ={-20}
+                  className="absolute -bottom-6 -right-6 w-24 h-24 border-2 border-emerald-500 rounded-br-2xl pointer-events-none"
+                />
 
-              {/* Main image with gradient border */}
-              <div className="relative z-10 rounded-2xl overflow-hidden p-1 bg-gradient-to-br from-rose-500 via-purple-500 to-emerald-500">
-                <div className="absolute inset-0 bg-white dark:bg-zinc-950 rounded-2xl m-[3px]"></div>
-                <div className="relative rounded-xl overflow-hidden aspect-[4/5]">
-                  <Image
-                    src="/PROFILE-PIC.jpg"
-                    alt="Shreyas Gurav"
-                    width={480}
-                    height={600}
-                    className="object-cover h-full w-full"
-                  />
-                </div>
-              </div>
-
-              {/* Experience stats */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="absolute -bottom-10 -right-10 bg-white dark:bg-zinc-900 shadow-xl rounded-2xl p-4 z-20"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="text-center">
-                    <h3 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-purple-500">
-                      2+
-                    </h3>
-                    <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                      Years of
-                      <br />
-                      Experience
-                    </p>
-                  </div>
-                  <div className="text-center">
-                    <h3 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-emerald-500">
-                      5+
-                    </h3>
-                    <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                      Projects
-                      <br />
-                      Completed
-                    </p>
+                {/* Main image — direct child of CardBody, full width, fixed height */}
+                <div
+                  className="relative rounded-2xl overflow-hidden p-[3px] bg-gradient-to-br from-rose-500 via-purple-500 to-emerald-500"
+                  style={{ transform: "translateZ(40px)" }}
+                >
+                  <div className="relative rounded-xl overflow-hidden w-full h-[440px] md:h-[520px]">
+                    <Image
+                      src="/profilepic.jpeg"
+                      alt="Shreyas Gurav"
+                      fill
+                      className="object-cover object-[center_15%]"
+                      priority
+                    />
                   </div>
                 </div>
-              </motion.div>
-            </div>
+
+                {/* Stats badge — floats highest */}
+                <CardItem
+                  translateZ={80}
+                  className="absolute -bottom-10 -right-10 bg-white dark:bg-zinc-900 shadow-xl rounded-2xl p-4 z-20"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="text-center">
+                      <h3 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-rose-500 to-purple-500">
+                        1+
+                      </h3>
+                      <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                        Years of
+                        <br />
+                        Experience
+                      </p>
+                    </div>
+                    <div className="text-center">
+                      <h3 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-emerald-500">
+                        5+
+                      </h3>
+                      <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                        Projects
+                        <br />
+                        Completed
+                      </p>
+                    </div>
+                  </div>
+                </CardItem>
+              </CardBody>
+            </CardContainer>
           </motion.div>
 
           <motion.div
@@ -95,57 +106,66 @@ export default function About() {
             className="space-y-6"
           >
             <p className="text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed">
-              I&apos;m a{" "}
+              I am a Software Engineer at Schbang working on{" "}
               <span className="font-semibold text-rose-500 dark:text-rose-400">
-                Full Stack Developer
+                backend platforms and cloud infrastructure
               </span>{" "}
-              with hands-on experience in JavaScript, React.js, Node.js, and
-              Tailwind CSS. My journey in web development started with a passion
-              for creating efficient, user-friendly applications that solve
-              real-world problems.
+              powering internal automation and AI-driven systems.
             </p>
 
             <p className="text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed">
-              Skilled in building scalable applications with MongoDB and MySQL
-              while following best practices in clean coding and performance
-              optimization. I specialize in creating responsive, accessible, and
-              performant web applications that provide exceptional user
-              experiences.
+              My engineering focus lies in building services that remain stable
+              under real usage — systems that are observable, maintainable, and
+              scalable over time. I work across FastAPI, Node.js, and AWS to
+              design automation pipelines, operate distributed services, and
+              improve reliability through structured debugging and monitoring.
+            </p>
+
+            <p className="text-lg text-zinc-700 dark:text-zinc-300 leading-relaxed">
+              Rather than treating development and operations separately, I
+              approach systems end-to-end: architecture decisions, deployment,
+              incident analysis, and long-term stability improvements. I hold
+              the{" "}
+              <span className="font-semibold">
+                AWS Certified Developer – Associate
+              </span>{" "}
+              certification and specialize in event-driven architectures and
+              microservice-based backend systems.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
               <div className="bg-white dark:bg-zinc-900 rounded-xl p-6 shadow-lg border border-zinc-200 dark:border-zinc-800">
                 <h3 className="font-semibold text-lg mb-2">Education</h3>
-                <p className="text-zinc-700 dark:text-zinc-300">
-                  B.Tech in Computer Engineering
+                <p className="text-zinc-700 dark:text-zinc-300 font-medium">
+                  Bachelor of Engineering — Computer Engineering
                 </p>
-                <p className="text-zinc-500 dark:text-zinc-400 text-sm">
-                  Vasantdada Patil College Of Engineering
+                <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-1">
+                  Vasantdada Patil College of Engineering & Visual Arts, Mumbai
+                  University
                 </p>
-                <p className="text-zinc-500 dark:text-zinc-400 text-sm">
-                  2021-2025 • CGPA: 7.75
+                <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-1">
+                  2021 — 2025 | CGPA: 7.75
                 </p>
               </div>
 
               <div className="bg-white dark:bg-zinc-900 rounded-xl p-6 shadow-lg border border-zinc-200 dark:border-zinc-800">
                 <h3 className="font-semibold text-lg mb-2">Location</h3>
-                <p className="text-zinc-700 dark:text-zinc-300">
-                  Mumbai, Maharashtra
+                <p className="text-zinc-700 dark:text-zinc-300 font-medium">
+                  Mumbai, India
                 </p>
-                <p className="text-zinc-500 dark:text-zinc-400 text-sm">
-                  Open to remote opportunities
-                </p>
-                <p className="text-zinc-500 dark:text-zinc-400 text-sm">
-                  Available for freelance work
+                <p className="text-zinc-500 dark:text-zinc-400 text-sm mt-1">
+                  Open to product engineering and cloud-focused roles.
                 </p>
               </div>
             </div>
 
             <div className="pt-6">
-              <Button className="rounded-full gap-2 bg-gradient-to-r from-rose-500 via-purple-500 to-emerald-500 hover:shadow-lg hover:shadow-rose-500/20 transition-shadow duration-300">
-                <Download className="h-4 w-4" />
-                Download Resume
-              </Button>
+              <a href="/Shreyas_Gurav_Software_Engineer.pdf" download>
+                <Button className="rounded-full gap-2 bg-gradient-to-r from-rose-500 via-purple-500 to-emerald-500 hover:shadow-lg hover:shadow-rose-500/20 transition-shadow duration-300">
+                  <Download className="h-4 w-4" />
+                  Download Resume
+                </Button>
+              </a>
             </div>
           </motion.div>
         </div>
