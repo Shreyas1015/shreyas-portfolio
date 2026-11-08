@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# shreyas-portfolio
 
-## Getting Started
-
-First, run the development server:
+Personal site for Shreyas Gurav. Next.js 16 (App Router), GSAP 3.15 (ScrollTrigger, SplitText, DrawSVG, CustomEase), Lenis, plain CSS. The design is pinned to the `shreyas-gurav-site-concept` prototype.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Editing content
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Every word on the page lives in `src/content/site.ts`. Updating the resume means editing that file, not components.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Never add the dispatch planner's open-order value (confidential).
+- The resume download is `public/Shreyas_Gurav_Software_Engineer.pdf` (redacted 2026 version). Only ever replace it with a redacted copy.
 
-## Learn More
+## Layout
 
-To learn more about Next.js, take a look at the following resources:
+- `src/app/globals.css` – the concept's stylesheet, unchanged apart from font variables.
+- `src/app/sections.css` – sections added beyond the concept (about, experience systems, AWS, footer bar).
+- `src/components/*` – one component per section.
+- `src/motion/site.ts` – all page motion; `src/motion/hero-gl.ts` – the hero photo shader.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Debug flags: `?static` renders everything settled, `?at=<px>` skips the preloader and jumps to a scroll offset.

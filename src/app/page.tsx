@@ -1,12 +1,27 @@
-import type { Metadata } from "next";
-import MainLayout from "@/components/main-layout";
-
-export const metadata: Metadata = {
-  title: "Shreyas Gurav | Full Stack Developer",
-  description:
-    "Portfolio of Shreyas Gurav, a Full Stack Developer specializing in React.js, Next.js, Node.js, and more.",
-};
+import { About } from "@/components/about";
+import { Experience } from "@/components/experience";
+import { Cursor, Loader, Menu } from "@/components/chrome";
+import { Footer } from "@/components/footer";
+import { Hero } from "@/components/hero";
+import { Motion } from "@/components/motion";
+import { OpenSource } from "@/components/open-source";
+import { Stack } from "@/components/stack";
 
 export default function Home() {
-  return <MainLayout />;
+  return (
+    <>
+      <Cursor />
+      <Loader />
+      <Menu />
+      <Hero />
+      <main>
+        <About />
+        <OpenSource />
+        <Experience />
+        <Stack />
+      </main>
+      <Footer />
+      <Motion />
+    </>
+  );
 }

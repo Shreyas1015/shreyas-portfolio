@@ -1,0 +1,134 @@
+/* Sections added beyond the concept. Same tokens, same grammar. */
+
+/* ---------- about: intro + how I work ---------- */
+.how{grid-column:1 / -1;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:clamp(96px,11vw,180px);align-items:start}
+.how-side{grid-column:1 / span 4;position:sticky;top:clamp(96px,14vh,160px)}
+.how-intro{margin:0;font-size:clamp(19px,1.5vw,24px);line-height:1.42;letter-spacing:-.01em;max-width:30ch}
+.how-main{grid-column:6 / span 7}
+.how-h{margin:0 0 clamp(28px,3vw,48px);font-family:var(--display);font-weight:500;font-size:clamp(44px,5.4vw,96px);line-height:.92;letter-spacing:-.045em}
+.principles{margin:0;padding:0;list-style:none}
+.pr{display:grid;grid-template-columns:1fr;gap:12px;padding:clamp(26px,2.8vw,44px) 0;border-top:1px solid var(--line)}
+.pr:last-child{border-bottom:1px solid var(--line)}
+.pr-t{position:relative;margin:0;font-family:var(--display);font-weight:500;font-size:clamp(30px,3.3vw,58px);line-height:1;letter-spacing:-.04em;transition:color .6s var(--ease-out),transform .8s var(--ease)}
+.pr-t::before{content:"";position:absolute;left:0;top:.42em;width:.2em;height:.2em;border-radius:50%;background:var(--accent);transform:scale(0);transition:transform .6s var(--ease-out)}
+.pr-b{margin:0;max-width:46ch;color:var(--ink-2);font-size:clamp(16px,1.2vw,19px);line-height:1.5;transition:color .6s var(--ease-out)}
+/* with motion, the principle crossing the middle of the screen is the lit one */
+.motion .pr-t{color:rgba(241,237,230,.28)}
+.motion .pr-b{color:rgba(168,161,153,.45)}
+.motion .pr.on .pr-t{color:var(--ink);transform:translateX(.42em)}
+.motion .pr.on .pr-t::before{transform:scale(1);left:-.42em}
+.motion .pr.on .pr-b{color:var(--ink-2)}
+.about-cta{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(16px,2vw,32px);margin-top:clamp(28px,3vw,44px)}
+.about-cta .btn-round{width:clamp(120px,11vw,160px);height:clamp(120px,11vw,160px);background:var(--bg-2);border:1px solid var(--line);font-size:16px;flex:none}
+.about-cta .btn-round .fill{background:var(--accent)}
+.about-cta .btn-round:hover{color:var(--bg)}
+.about-cta .btn-round .lbl{display:flex;flex-direction:column;align-items:center;gap:6px}
+.about-cta .gh{padding-left:0}
+
+/* ---------- open source: problem / use / trust ---------- */
+.proj-why{grid-column:1 / -1;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0 clamp(24px,3vw,48px);margin:clamp(28px,3vw,48px) 0 0}
+.proj-why div{padding-top:18px;border-top:1px solid var(--line)}
+.proj-why dt{font-size:14px;color:var(--accent);margin-bottom:8px}
+.proj-why dd{margin:0;font-size:16px;line-height:1.5;max-width:44ch}
+.proj-actions .npm{color:var(--ink-2)}
+
+/* ---------- experience: the spread (cream = before, dark = now), leaves share rows across the seam ---------- */
+.spread{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto minmax(clamp(120px,22vh,260px),1fr) auto auto auto;border-block:1px solid var(--line)}
+.leaf{display:grid;grid-row:span 5;grid-template-rows:subgrid;padding:clamp(32px,4vw,64px) var(--gut);min-width:0}
+.leaf-then{background:var(--paper);color:var(--paper-ink)}
+.leaf-now{background:var(--bg);color:var(--ink)}
+.leaf-when{grid-row:1;margin:0;font-size:clamp(16px,1.2vw,20px);color:var(--ink-2);font-variant-numeric:tabular-nums}
+.leaf-then .leaf-when{color:var(--paper-ink-2)}
+.leaf-now .leaf-when{display:inline-flex;align-items:center;gap:10px}
+.leaf-now .leaf-when::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(99,214,139,.55);animation:ping 2s infinite}
+.leaf-co{grid-row:3;align-self:end;margin:0;font-family:var(--display);font-weight:500;font-size:clamp(84px,10.4vw,172px);line-height:.86;letter-spacing:-.045em}
+/* the reveal mask must clear descenders (the g in Schbang) */
+.leaf-co .m{padding-bottom:.2em;margin-bottom:-.2em}
+.leaf-role{grid-row:4;margin:clamp(20px,2vw,30px) 0 0;font-size:clamp(18px,1.5vw,23px)}
+.leaf-tx{grid-row:5;margin:clamp(12px,1.2vw,18px) 0 0;max-width:36em;font-size:clamp(16px,1.3vw,20px);line-height:1.45;color:var(--ink-2)}
+.leaf-then .leaf-tx{color:var(--paper-ink-2)}
+
+/* ---------- impact reel (inside Experience): one run per company, figures at name scale ---------- */
+.impact{position:relative;margin-top:clamp(56px,6vw,96px)}
+.imp-track{display:flex;gap:0;padding:0 var(--gut)}
+.imp{flex:none;min-width:0}
+.imp:first-child{border-left:0;padding-left:0}
+/* a panel is as wide as its figure, never narrower than a reading column */
+.imp{width:max-content;min-width:clamp(300px,30vw,520px);padding:8px clamp(28px,3.4vw,60px) 0;border-left:1px solid var(--line)}
+.imp-fig{margin:0;font-family:var(--display);font-weight:500;font-size:clamp(72px,10.4vw,172px);line-height:.88;letter-spacing:-.045em;color:var(--accent);font-variant-numeric:tabular-nums;white-space:nowrap}
+.imp-label{max-width:16em;margin:.55em 0 0;font-family:var(--display);font-weight:500;font-size:clamp(20px,1.8vw,30px);letter-spacing:-.025em;line-height:1.1}
+.imp-ctx{margin:.55em 0 0;color:var(--ink-2);max-width:36ch}
+.imp-bars{margin-top:24px;display:grid;gap:10px;max-width:420px}
+.imp-bar{display:grid;grid-template-columns:6.4em 1fr;align-items:center;gap:14px;font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.imp-bar i{display:block;height:10px;border-radius:10px;background:rgba(241,237,230,.2);transform-origin:0 50%}
+.imp-bar.after{color:var(--ink)}
+.imp-bar.after i{background:var(--accent);width:max(8px,calc(var(--r) * 100%))}
+.imp-prog{margin:clamp(24px,3vw,44px) var(--gut) 0;height:2px;background:rgba(241,237,230,.1)}
+.imp-prog i{display:block;height:100%;background:var(--accent);transform-origin:0 50%;transform:scaleX(0)}
+/* without the pinned reel (phones, no motion) the strip is swiped sideways */
+.impact:not(.pinned) .imp-track{overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 var(--gut);scrollbar-width:none;padding-bottom:4px}
+.impact:not(.pinned) .imp-track::-webkit-scrollbar{display:none}
+.impact:not(.pinned) .imp{scroll-snap-align:start}
+/* desktop with motion: the reel pins under the nav and slides sideways */
+.hx .impact{margin-top:0}
+.hx .imp-pin{height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:flex-start;padding-top:clamp(96px,14vh,150px);overflow:hidden}
+.hx .imp-track{width:max-content;will-change:transform}
+
+/* ---------- AWS, featured ---------- */
+.aws{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:center;margin:clamp(110px,12vw,190px) var(--gut) 0}
+.aws-badge{grid-column:1 / span 5;position:relative;width:100%;max-width:460px;aspect-ratio:1}
+.aws-ring{position:absolute;inset:0;width:100%;height:100%;overflow:visible;will-change:transform}
+.aws-ring text{font-family:var(--display);font-weight:500;font-size:13.4px;letter-spacing:.2em;fill:var(--paper-ink)}
+.aws-core{position:absolute;inset:23%;border-radius:50%;background:var(--accent);color:var(--paper-ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3em;text-align:center}
+.aws-core .ico{font-size:clamp(26px,2.4vw,38px);stroke-width:1.5}
+.aws-core b{font-family:var(--display);font-weight:600;font-size:clamp(36px,4.2vw,68px);line-height:.9;letter-spacing:-.04em}
+.aws-core small{max-width:76%;font-size:clamp(10px,.85vw,13px);letter-spacing:.08em;line-height:1.3;text-transform:uppercase;font-weight:500}
+.aws-body{grid-column:7 / span 6}
+.aws-body h3{margin:0;font-family:var(--display);font-weight:500;font-size:clamp(36px,4.3vw,76px);line-height:.98;letter-spacing:-.04em;text-wrap:balance}
+.aws-issuer{margin:.9em 0 0;color:var(--paper-ink-2)}
+.aws-desc{margin:1.2em 0 0;font-size:clamp(18px,1.4vw,22px);line-height:1.4;max-width:40ch}
+.aws-covers{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 0;padding:0;list-style:none}
+.aws-covers li{padding:.38em .9em;border:1px solid var(--paper-line);border-radius:999px;font-size:14px;color:var(--paper-ink-2)}
+.aws-valid{margin-top:clamp(40px,4vw,64px);max-width:560px;font-size:14px;font-variant-numeric:tabular-nums}
+.aws-line{position:relative;height:2px;margin:34px 0 12px;background:var(--paper-line)}
+.aws-line i{position:absolute;left:0;top:0;height:100%;width:var(--p,0%);background:var(--accent);transform-origin:0 50%}
+.aws-line b{position:absolute;left:var(--p,0%);top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px rgba(255,79,46,.18)}
+.aws-line em{position:absolute;left:var(--p,0%);bottom:14px;transform:translateX(-50%);font-style:normal;font-size:13px;color:var(--paper-ink);white-space:nowrap}
+.aws-ends{display:flex;justify-content:space-between;color:var(--paper-ink-2)}
+.aws-cred{display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px clamp(20px,2.4vw,36px);margin-top:clamp(28px,3vw,44px);max-width:560px}
+.aws-id{display:grid;gap:8px;min-width:0}
+.aws-id-k{font-size:13px;color:var(--paper-ink-2)}
+.aws-id-v{display:inline-flex;align-items:center;gap:14px;max-width:100%;padding:.75em 1em .75em 1.1em;border:1px solid var(--paper-line);border-radius:12px;color:var(--paper-ink);transition:border-color .3s}
+.aws-id-v code{font-family:var(--mono);font-size:13.5px;letter-spacing:.02em;overflow-wrap:anywhere;text-align:left}
+.aws-id-v .cp{display:inline-flex;align-items:center;gap:6px;flex:none;padding-left:14px;border-left:1px solid var(--paper-line);font-size:13px;color:var(--paper-ink-2)}
+.aws-id-v:hover{border-color:var(--paper-ink)}
+.aws-id-v.ok .cp{color:var(--accent)}
+.aws-verify{display:inline-flex;align-items:center;gap:8px;padding:.75em 0;font-size:15px;color:var(--paper-ink);border-bottom:1px solid currentColor;line-height:1.1}
+.aws-verify:hover{color:var(--accent)}
+.aws-verify .ico.arr{transition:transform .4s var(--ease-out)}
+.aws-verify:hover .ico.arr{transform:translate(3px,-3px)}
+
+/* ---------- light band headings sit tighter after the AWS block ---------- */
+.light .creds .sec-head h2{font-size:clamp(48px,7vw,124px)}
+.stack-grid{grid-template-columns:repeat(3,1fr)}
+
+@media (max-width:900px){
+  .how{grid-template-columns:1fr;gap:64px;margin-top:72px}
+  .how-side,.how-main{grid-column:1}
+  .how-side{position:static}
+  .proj-why{grid-template-columns:1fr;gap:20px}
+  .spread{grid-template-columns:1fr;grid-template-rows:none}
+  .leaf{display:flex;flex-direction:column;grid-row:auto}
+  .leaf-co{margin-top:clamp(56px,16vw,96px);font-size:clamp(72px,22vw,120px)}
+  .imp{min-width:82vw}
+  .imp-fig{font-size:clamp(64px,19vw,104px)}
+  .aws{grid-template-columns:1fr;gap:48px}
+  .aws-badge,.aws-body{grid-column:1}
+  .aws-badge{max-width:300px;margin:0 auto}
+  .aws-id-v{gap:10px;padding:.75em .85em}
+  .aws-id-v code{font-size:11.5px;letter-spacing:0}
+  .aws-id-v .cp{padding-left:10px}
+  .stack-grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+}
