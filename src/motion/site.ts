@@ -543,7 +543,7 @@ export function start() {
     /* ---------- experience spread: both leaves open outward from the centre seam ---------- */
     const spread = $(".spread");
     if (spread) {
-      const stacked = innerWidth <= 900;
+      const stacked = innerWidth < 600;
       const [then, now] = $$(".leaf", spread);
       const names = $$(".leaf-co", spread).map((n) => maskWords(n));
       gsap.set(names.flat(), { yPercent: 110 });

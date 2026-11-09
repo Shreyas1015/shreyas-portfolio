@@ -63,7 +63,7 @@ export const openSource = {
     name: "codeloom",
     version: "v0.3.1 · MIT",
     desc: "Feature maps for engineers and AI agents. It traces each page to the API route, code and database tables behind it, across repos.",
-    points: ["Works across frontend and backend repos", "Built without AI", "Code never leaves your machine"],
+    points: ["Works across frontend and backend repos", "Map built without AI", "Claude joins over MCP", "Code never leaves your machine"],
     why: [
       {
         k: "Problem",

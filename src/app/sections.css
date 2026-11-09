@@ -41,7 +41,7 @@
 .leaf-then .leaf-when{color:var(--paper-ink-2)}
 .leaf-now .leaf-when{display:inline-flex;align-items:center;gap:10px}
 .leaf-now .leaf-when::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(99,214,139,.55);animation:ping 2s infinite}
-.leaf-co{grid-row:3;align-self:end;margin:0;font-family:var(--display);font-weight:500;font-size:clamp(84px,10.4vw,172px);line-height:.86;letter-spacing:-.045em}
+.leaf-co{grid-row:3;align-self:end;margin:0;font-family:var(--display);font-weight:500;font-size:clamp(56px,10.4vw,172px);line-height:.86;letter-spacing:-.045em}
 /* the reveal mask must clear descenders (the g in Schbang) */
 .leaf-co .m{padding-bottom:.2em;margin-bottom:-.2em}
 .leaf-role{grid-row:4;margin:clamp(20px,2vw,30px) 0 0;font-size:clamp(18px,1.5vw,23px)}
@@ -117,18 +117,51 @@
   .how-side,.how-main{grid-column:1}
   .how-side{position:static}
   .proj-why{grid-template-columns:1fr;gap:20px}
-  .spread{grid-template-columns:1fr;grid-template-rows:none}
-  .leaf{display:flex;flex-direction:column;grid-row:auto}
-  .leaf-co{margin-top:clamp(56px,16vw,96px);font-size:clamp(72px,22vw,120px)}
-  .imp{min-width:82vw}
-  .imp-fig{font-size:clamp(64px,19vw,104px)}
+  .imp{width:84vw;min-width:0}
+  .imp-fig{font-size:min(13vw,88px)}
+  .imp-label{max-width:none}
   .aws{grid-template-columns:1fr;gap:48px}
   .aws-badge,.aws-body{grid-column:1}
   .aws-badge{max-width:300px;margin:0 auto}
   .aws-id-v{gap:10px;padding:.75em .85em}
-  .aws-id-v code{font-size:11.5px;letter-spacing:0}
+  .aws-id-v code{font-size:12px;letter-spacing:0}
   .aws-id-v .cp{padding-left:10px}
   .stack-grid{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){
+}
+
+/* ---------- phones: the spread stacks, oldest first; names sit left ---------- */
+@media (max-width:599px){
+  .spread{grid-template-columns:1fr;grid-template-rows:none}
+  .leaf{display:flex;flex-direction:column;grid-row:auto}
+  .leaf-co{align-self:flex-start;margin-top:clamp(48px,14vw,80px);font-size:clamp(72px,22vw,120px)}
+}
+
+/* ---------- touch: every control is at least 44px to hit ---------- */
+@media (pointer:coarse){
+  .brand,.gh,.aws-verify,.foot-bar .socs a,.menu .soc a{min-height:44px;display:inline-flex;align-items:center}
+  .foot-bar .socs a,.menu .soc a{min-width:44px;justify-content:center}
+  .nav ul a{min-height:44px;display:inline-flex;align-items:center}
+  .cmd,.aws-id-v{min-height:44px}
+  .foot-bar .socs{gap:8px 18px;flex-wrap:wrap}
+}
+/* narrow phones: copy buttons keep the icon (and their aria-label) so the command fits on one line */
+@media (max-width:400px){
+  .cmd .cp-t,.aws-id-v .cp-t{display:none}
+  .cmd{text-align:left}
+}
+
+/* ---------- landscape phones: photo left, role and location right, name along the bottom ---------- */
+@media (max-width:900px) and (orientation:landscape) and (max-height:520px){
+  .hero{height:100svh;min-height:360px}
+  .hero-photo{left:var(--gut);right:auto;top:76px;width:40%;height:calc(100% - 76px - 20px)}
+  .say-hi{left:calc(var(--gut) + 40% - 56px);right:auto;top:96px}
+  .say-hi .btn-round{width:96px;height:96px}
+  .marquee{top:auto;bottom:4%;padding-top:0}
+  .marquee-track>span{font-size:min(22vw,120px)}
+  .hero-role{left:calc(var(--gut) + 40% + 64px);right:var(--gut);top:104px;bottom:auto;width:auto}
+  .hero-role p{display:block;font-size:clamp(22px,3.4vw,30px)}
+  .hero-role p+p::before{content:none}
+  .hero-loc{left:calc(var(--gut) + 40% + 64px);top:auto;bottom:calc(4% + min(22vw,120px) * .95)}
 }
